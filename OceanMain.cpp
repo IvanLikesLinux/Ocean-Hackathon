@@ -1,17 +1,18 @@
 #include <iostream> 
+#include "raylib.h"
 
 int main() {
     const int screenWidth = 1350;
     const int screenHeight = 1350;
     InitWindow(screenWidth, screenHeight, "The Deep Sea");
     Camera3D camera = { 0 };
-    camera.position = {Vector3} {0.0f, 10.0f, 10.f};
-    camera.target = (Vector3) {0.0,0.0f,0.0f};
-    camera.up = (Vector3) {0.0f, 1.0f, 0.0f};
+    camera.position = (Vector3){ 0.0f, 10.0f, 10.0f };  // Camera position
+    camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };      // Camera looking at point
+    camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };
     camera.fovy = 45.0f; 
     camera.projection = CAMERA_PERSPECTIVE;
     Vector3 cubePosition = { 0.0f, 0.0f, 0.0f };
-    setTargetFPS(60);
+    SetTargetFPS(60);
     while(!WindowShouldClose()) {
         BeginDrawing();
             ClearBackground(RAYWHITE);
@@ -29,14 +30,9 @@ int main() {
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
-
     // De-Initialization
     //--------------------------------------------------------------------------------------
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
-
     return 0;
-
-    }
-
-    }
+}
